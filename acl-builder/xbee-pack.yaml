@@ -1,0 +1,25 @@
+schema-version: 1.0
+
+type: builder
+
+
+const:
+  srcDir: /usr/src
+  exportDir: /opt/acl
+
+dependency: attr
+
+provision:
+  - url:
+      from: https://download.savannah.gnu.org/releases/acl/acl-{% version %}.tar.xz
+      todir: "{% srcDir %}"
+
+build:
+  - shell:
+      cmds:
+        - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/acl-{% version %}
+        - make
+        - make install DESTDIR={% exportDir %}
+      directory: "{% srcDir %}/acl-{% version %}"
+  - export: "{% exportDir %}"
+

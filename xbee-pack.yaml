@@ -1,0 +1,26 @@
+schema-version: 1.0
+
+description: |
+  The Acl package contains utilities to administer Access Control Lists, which are used to define more fine-grained discretionary access rights for files and directories.
+
+  Installed programs: chacl, getfacl, and setfacl
+  Installed library: libacl.so
+  Installed directories: /usr/include/acl and /usr/share/doc/acl-2.3.1
+
+  Short Descriptions
+  chacl: Changes the access control list of a file or directory
+  getfacl: Gets file access control lists
+  setfacl: Sets file access control lists
+
+  libacl: Contains the library functions for manipulating Access Control Lists
+
+builder: ./acl-builder
+
+var:
+  version: 2.3.1
+
+
+provision:
+  - copy:
+      builder: acl
+      todir: /
