@@ -19,7 +19,7 @@ description: |
 var:
   version: 2.3.1
 
-dependency: attr
+builder: attr
 
 provision:
   - url:
