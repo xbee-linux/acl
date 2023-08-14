@@ -22,9 +22,7 @@ var:
 builder: attr
 
 provision:
-  - url:
-      from: https://download.savannah.gnu.org/releases/acl/acl-{{ .version }}.tar.xz
-      todir: "{{ .xbee.src }}"
+  url: https://download.savannah.gnu.org/releases/acl/acl-{{ .version }}.tar.xz
 
 build:
   - shell:
