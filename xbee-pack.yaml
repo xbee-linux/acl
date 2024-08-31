@@ -17,19 +17,20 @@ description: |
   libacl: Contains the library functions for manipulating Access Control Lists
 
 var:
-  version: 2.3.1
+  xbee:
+    version: 2.3.1
 
 builder: attr
 
 provision:
-  url: https://download.savannah.gnu.org/releases/acl/acl-{{ .version }}.tar.xz
+  url: https://download.savannah.gnu.org/releases/acl/acl-{{ .xbee.version }}.tar.xz
 
 build:
   - shell:
       cmds:
-        - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/acl-{{ .version }}
+        - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/acl-{{ .xbee.version }}
         - make
         - make install DESTDIR={{ .xbee.out }}
-      directory: "{{ .xbee.src }}/acl-{{ .version }}"
+      directory: "{{ .xbee.src }}/acl-{{ .xbee.version }}"
 
 
